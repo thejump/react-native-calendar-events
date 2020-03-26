@@ -172,9 +172,9 @@ RCT_EXPORT_MODULE()
     if (availability) {
         calendarEvent.availability = [self availablilityConstantMatchingString:availability];
     }
-
-    NSURL *URL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
-    if (URL) {
+//jgc the line below fixes urls
+      NSURL *URL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+   if (URL) {
         calendarEvent.URL = URL;
     }
 
